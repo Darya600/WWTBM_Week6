@@ -20,14 +20,12 @@ namespace Who_want_to_be_a_m2
     {
         public CorrectAnswer(string answerNumber, string answerText) : base(answerNumber, answerText)
         {
-         
         }
     }
     public class WrongAnswer : Answers
     {
         public WrongAnswer(string answerNumber, string answerText) : base(answerNumber, answerText)
         {
-         
         }
 
     }   
