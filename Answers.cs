@@ -20,26 +20,15 @@ namespace Who_want_to_be_a_m2
     {
         public CorrectAnswer(string answerNumber, string answerText) : base(answerNumber, answerText)
         {
-            this.answerText = answerText;
-            this.answerNumber = answerNumber;
+         
         }
     }
     public class WrongAnswer : Answers
     {
         public WrongAnswer(string answerNumber, string answerText) : base(answerNumber, answerText)
         {
-            this.answerText = answerText;
-            this.answerNumber = answerNumber;
+         
         }
 
-    }
-    public class UserAnswer : Answers
-    {
-        public UserAnswer(string answerNumber, string answerText) : base(answerNumber, answerText)
-        {
-            this.answerText = answerText;
-            this.answerNumber = answerNumber;
-        }
-
-    }
+    }   
 }
