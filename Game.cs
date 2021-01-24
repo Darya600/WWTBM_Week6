@@ -82,6 +82,49 @@ namespace Who_want_to_be_a_m2
             return question[1].answers;
 
         }
+        public int NumberInput()
+        {
+            try
+            {
+                Console.WriteLine("Введите номер верного ответа:");
+                int getNumber = int.Parse(Console.ReadLine());
+                if (getNumber >= 1 & getNumber <= 4)
+                {
+                    return getNumber;
+                }
+                else
+                {
+                    Console.WriteLine("Введите номер верного ответа от 1 до 4:");
+                    return NumberInput();
+                }  
+            }
+            catch
+            {
+                Console.WriteLine("Введите число от 1 до 4:");
+                return NumberInput();
+            }
+        }
+        public string DesignInput()
+        {
+            try
+            {
+                string userInput = Console.ReadLine();
+                if((string.Equals(userInput, "нет", StringComparison.OrdinalIgnoreCase)) || (string.Equals(userInput, "да", StringComparison.OrdinalIgnoreCase)))
+                {
+                    return userInput;
+                }
+                else
+                {
+                    Console.WriteLine("Введите Да или Нет!");
+                    return DesignInput();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Введите Да или Нет!");
+                return DesignInput();
+            }
+        }
         public  void GameLoop(Questions [] question,User newUser)
         {
             for(int startindex = 0; startindex < question.Length; startindex++)
@@ -91,20 +134,16 @@ namespace Who_want_to_be_a_m2
                 {
                     Console.WriteLine(answerNumberText.answerNumber+answerNumberText.answerText);
                 }
-                Console.WriteLine("Введите номер верного ответа:");
-                
-                 
+               
 
-                if ((question[startindex].answers[(int.Parse(Console.ReadLine())-1)] as CorrectAnswer)!=null)
+                if ((question[startindex].answers[NumberInput()-1] as CorrectAnswer)!=null)
                 {
-                    string userDesign = "";
                     if (startindex != question.Length-1)
                     {
                         Console.WriteLine("Вы хотите продолжить игру? Для продлжения игры введите да, для выхода нет.");
-                        userDesign = Console.ReadLine();
                     }
                         
-                    if ((newUser.userScore == 200) || (string.Equals(userDesign, "нет", StringComparison.OrdinalIgnoreCase)))
+                    if ((newUser.userScore == 200) || (string.Equals(DesignInput(), "нет", StringComparison.OrdinalIgnoreCase)))
                     {
                         Console.WriteLine(newUser.userName +" Вы выйграли!!!" + "\n Ваш счет = " + newUser.userScore);
                         return;
