@@ -145,7 +145,7 @@ namespace Who_want_to_be_a_m2
                         
                     if ((newUser.userScore == 200) || (string.Equals(DesignInput(), "нет", StringComparison.OrdinalIgnoreCase)))
                     {
-                        Console.WriteLine(newUser.userName +" Вы выйграли!!!" + "\n Ваш счет = " + newUser.userScore);
+                        Console.WriteLine(newUser.userName + " Вы выйграли!!!" + "{0}Ваш счет = " + newUser.userScore, Environment.NewLine); 
                         return;
                     }
                     else
@@ -156,7 +156,7 @@ namespace Who_want_to_be_a_m2
                 else
                 {
                     newUser.userScore = 0;
-                    Console.WriteLine(newUser.userName + " Вы  проиграли!!!"+"\n Ваш счет = "+newUser.userScore);
+                    Console.WriteLine(newUser.userName + " Вы  проиграли!!!"+"{0}Ваш счет = " +newUser.userScore, Environment.NewLine);
                     return;
                 }
 
